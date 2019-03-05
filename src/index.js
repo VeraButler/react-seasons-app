@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import SeasonDisplay from './SeasonDisplay';
+import SeasonDisplay from './SeasonDisplay';
+import Spinner from './Spinner';
 
 class App extends React.Component {
     // equivalent to constructor(super){...}
@@ -15,14 +16,23 @@ class App extends React.Component {
 
     }
 
-    render() {
+    // used if there is styling or wrappers needed for return of if/then/else statements
+    renderContent = () => {
         if (this.state.lat !== null && this.state.errorMessage === '') {
-            return < div > Latitude: {this.state.lat} </div >;
+            return <SeasonDisplay lat={this.state.lat} />;
         } else if (this.state.lat === null && this.state.errorMessage !== '') {
             return <div>Error: {this.state.errorMessage}</div>
         } else {
-            return <div>Loading...</div>
+            return (
+                // loading animation
+                <Spinner message='Please allow location to see magic...' />
+            );
         }
+    }
+    render() {
+        return (
+            < div className="border-red"> {this.renderContent()}</div>
+        );
 
     }   
 }
