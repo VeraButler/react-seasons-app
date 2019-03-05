@@ -18,7 +18,7 @@ Simple app that utilizes geolocation and the current month to inform you what se
     - Updating 'state' on a component causes the component to (almost) instantly rerender
     - State must be intialized when a component is created
     - State can only be updated uing the funciton 'setState'
-- Contructor
+- Constructor
     - Called fisrt when Component is run
     - essentially over rides the React.Component defaults
     ```
@@ -33,5 +33,37 @@ Simple app that utilizes geolocation and the current month to inform you what se
         this.handleChange = this.handleChange.bind(this);
         }
     ```
-This project is part of Stephen Grider's Modern React and Redux Udemy Course. <br>
+    - **SHORTHAND** of above statement
+    ```
+       state = { key: value, key: value};
+    ```
+- React App Lifecycle
+    - JS file loaded by browser
+    - Instance of App component is created
+    - App components 'contructor' function gets called
+    - State Object is created and assigned to the `this.state` property
+    - call Geolocation
+    - React calls `<App />`'s render method
+    - `<App />` returns JSX, gets rerendered --> HTML
+    - Get geolocation result
+    - update state object with call to `this.setState`
+    - React sees updated state of component 
+    - React calls `render` method a second time
+    - Render method returns some (updated) JSX
+    - React takes that JSX and updates content on the screen
+- Component Lifecycle Methods
+    - Constrcutor
+        - Good place to do one time setup
+    - render 
+        - Avoid doing anything besides JSX
+    - content visible on screen --> **componentDidMount**
+        - place to do data-loading
+    - Sit and wait for update --> **componentDidUpdate** --> 
+        - place to do more data-loading when *state/props change*
+    - Sit and wait until component is no longer shown --> **componentWillUnmount** 
+        - do cleanup here (especially for non-React stuff) 
+
+
+<br><br>
+This project is part of Stephen Grider's Modern React and Redux Udemy Course. <br><br>
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
