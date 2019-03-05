@@ -6,7 +6,7 @@ Simple app that utilizes geolocation and the current month to inform you what se
 - npm install
 - npm start
 
-# Skill Learned
+# Skills Learned
 - **Geolocation**
     - Resetting Geolocation Preferences
 - **Console Tools**
