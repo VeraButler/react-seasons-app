@@ -1,6 +1,11 @@
 # Seasons App
 Simple app that utilizes geolocation and the current month to inform you what season it is.
 
+# To use
+- git clone
+- npm install
+- npm start
+
 # Skill Learned
 - **Geolocation**
     - Resetting Geolocation Preferences
